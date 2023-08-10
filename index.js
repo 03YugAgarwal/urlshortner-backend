@@ -3,6 +3,15 @@ let mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 require("dotenv").config();
 const app = express();
+const cors = require('cors') 
+
+const corsOptions = { 
+  // origin:'https://abc.onrender.com',
+  AccessControlAllowOrigin: '*',  
+  origin: '*',  
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE' 
+}
+app.use(cors(corsOptions))
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -60,4 +69,4 @@ app.get('/:url',(req,res)=>{
 })
 
 
-app.listen(3000, () => console.log("http://localhost:3000"));
+app.listen(process.env.PORT, () => console.log(Started));
