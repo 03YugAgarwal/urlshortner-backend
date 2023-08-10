@@ -5,13 +5,7 @@ require("dotenv").config();
 const app = express();
 const cors = require('cors') 
 
-const corsOptions = { 
-  // origin:'https://abc.onrender.com',
-  AccessControlAllowOrigin: '*',  
-  origin: '*',  
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE' 
-}
-app.use(cors(corsOptions))
+app.use(cors())
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -69,4 +63,4 @@ app.get('/:url',(req,res)=>{
 })
 
 
-app.listen(process.env.PORT, () => console.log("Started"));
+app.listen(process.env.PORT || 3000, () => console.log("Started"));
