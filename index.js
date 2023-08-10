@@ -59,7 +59,11 @@ app.get('/:url',(req,res)=>{
     // console.log(url);
     URL.findOne({short: url}).then((data)=>{
         res.json({url: data.url})
-    })
+    }).catch(
+        (err)=>{
+            res.json({error: "URL not found"})
+        }
+    )
 })
 
 
