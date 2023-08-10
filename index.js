@@ -69,4 +69,4 @@ app.get('/:url',(req,res)=>{
 })
 
 
-app.listen(process.env.PORT, () => console.log(Started));
+app.listen(process.env.PORT, () => console.log("Started"));
